@@ -38,13 +38,15 @@ function onDataReceived(text) {
     quit();
   }
   else if(text === 'hello\n'){
-    hello();
+    hello(text);
   }
   else if(text === 'help\n'){
     help();
   }
+  
   else{
     unknownCommand(text);
+    hello(text);
   }
 }
 
@@ -64,13 +66,23 @@ function unknownCommand(c){
 /**
  * Says hello
  *
+ * @param  {string} x
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+function hello(x){
+  x.replace("\n","");
+  let tr = x.trim();
+   let arr = tr.split(" ");
+   console.log("hello " + arr[1]+" !");
 }
 
-
+/**
+ * Says hello
+ *
+ * @param  {string} x
+ * @returns {void}
+ */
+ 
 /**
  * Exits the application
  *
