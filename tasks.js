@@ -39,7 +39,7 @@ function onDataReceived(text) {
     quit();
   }
   else 
-    if((text.slice(0,5) === 'hello' || (text.slice(0,5)))){
+    if((text.slice(0,5) === 'hello')){
        hello(text.slice(5));
     }
   
@@ -91,7 +91,7 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('hello\nquit or exit\nhelp')
+  console.log('hello : this command greeting you for example if you wirte hello rima the answer would be hello rima!\nquit or exit : to exit\nhelp : show all the command')
 }
 // The following line starts the application
 startApp("Rima Assaad")
