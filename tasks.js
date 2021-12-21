@@ -122,11 +122,11 @@ function hello(x){
      if(arr[1] == '1\n')
     {
       let task = tasks.splice(0,1)
-console.log('the first task is deleted')
+console.log('you removed the first task')
     }
     else if(arr[1] == '2\n') {
       let task = tasks.splice(1,1)
-console.log('the second task is deleted')
+console.log('you removed the second task')
     }
     else
     console.log("error")
@@ -135,7 +135,7 @@ console.log('the second task is deleted')
   
 
 /**
- * list the tasks
+ * list all the tasks
  *
  * @returns {void}
  */
@@ -165,7 +165,7 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('hello : this command greeting you for example if you wirte hello rima the answer would be hello rima!\nquit or exit : to exit\nhelp : show all the command')
+  console.log('hello : this command greeting you for example if you wirte hello rima the answer would be hello rima!\nquit or exit : to exit\nhelp : show all the command\nlist : list all the tasks\nadd : add tasks1 to add the tasks one to the list of tasks\nremove : to remove the last task\nremove 1 : to remove the first task\nremove 2 : to remove the second task')
 }
 // The following line starts the application
 startApp("Rima Assaad")
