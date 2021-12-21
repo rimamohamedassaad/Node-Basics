@@ -50,6 +50,9 @@ function onDataReceived(text) {
   else if(text === 'list\n'){
     list();
   }
+  else if((text.slice(0,3) === 'add')){
+    add(text);
+  }
   else{
     unknownCommand(text);
   }
@@ -84,6 +87,24 @@ function hello(x){
   console.log('hello ' + tr.replace("\n","") + '!')
 }
 }
+/**add tasks
+ *
+ * @param {string} x
+ * @returns {void}
+ */
+function add(x){
+  
+  if(x.slice(3).trim() == "" ){
+    console.log('error you must add a task')
+  }
+  else {
+    tasks.push(x.slice(3).trim())
+    for(let i=0 ;i<tasks.length; i++){
+      console.log(i+1 +" : " + tasks[i]);
+    }
+  }
+}
+
 /**
  * list the tasks
  *
@@ -93,11 +114,9 @@ function list(){
   for(let i=0 ;i<tasks.length; i++){
     console.log(i+1 +" : " + tasks[i]);
   }}
-  /**
- * 
- * }
- *
-}
+ /**
+ 
+  
 
 
 
