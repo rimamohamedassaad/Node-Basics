@@ -53,6 +53,9 @@ function onDataReceived(text) {
   else if((text.slice(0,3) === 'add')){
     add(text);
   }
+  else if(((text.slice(0,6) === 'remove'))){
+    remove(text);
+  }
   else{
     unknownCommand(text);
   }
@@ -92,7 +95,7 @@ function hello(x){
  * @param {string} x
  * @returns {void}
  */
-function add(x){
+ function add(x){
   
   if(x.slice(3).trim() == "" ){
     console.log('error you must add a task')
@@ -104,6 +107,32 @@ function add(x){
     }
   }
 }
+/**remove tasks
+ *
+ * @param {string} x
+ * @returns {void}
+ */
+ function remove(x){
+  if(x.slice(6).trim() == "" ){
+    console.log( "the last task is removed :" + tasks.pop()+"\ntype list to see the new list");
+   }
+   else {
+    let arr = x.split(" ");
+   
+     if(arr[1] == '1\n')
+    {
+      let task = tasks.splice(0,1)
+console.log('the first task is deleted')
+    }
+    else if(arr[1] == '2\n') {
+      let task = tasks.splice(1,1)
+console.log('the second task is deleted')
+    }
+    else
+    console.log("error")
+    }}
+  
+  
 
 /**
  * list the tasks
