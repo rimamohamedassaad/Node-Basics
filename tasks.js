@@ -17,7 +17,7 @@ function startApp(name){
   console.log("--------------------")
 }
 
-let tasks=['eat', 'sleep', 'code'];
+let tasks=['study', 'practice', 'code'];
 
 /**
  * Decides what to do depending on the data that was received
@@ -47,10 +47,14 @@ function onDataReceived(text) {
   else if(text === 'help\n'){
     help();
   }
+  else if(text === 'list\n'){
+    list();
+  }
   else{
     unknownCommand(text);
   }
 }
+
 
 
 /**
@@ -80,8 +84,19 @@ function hello(x){
   console.log('hello ' + tr.replace("\n","") + '!')
 }
 }
+/**
+ * list the tasks
+ *
+ * @returns {void}
+ */
 function list(){
-  
+  for(let i=0 ;i<tasks.length; i++){
+    console.log(i+1 +" : " + tasks[i]);
+  }}
+  /**
+ * 
+ * }
+ *
 }
 
 
