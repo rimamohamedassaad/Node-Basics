@@ -17,6 +17,7 @@ function startApp(name){
   console.log("--------------------")
 }
 
+let tasks=['eat', 'sleep', 'code'];
 
 /**
  * Decides what to do depending on the data that was received
@@ -71,9 +72,19 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(x){
+  if(x.length<5){
+    console.log('hello!')
+  }
+  else {
   let tr = x.trim();
-  console.log('hello' + x.replace("\n","") + '!')
+  console.log('hello ' + tr.replace("\n","") + '!')
 }
+}
+function list(){
+  
+}
+
+
 
 
 /**
