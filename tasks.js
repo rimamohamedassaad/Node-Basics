@@ -17,9 +17,9 @@ function startApp(name) {
   console.log("--------------------")
 }
 
-let tasks = [{taskName : 'study', done : true},
- {taskName: 'practice', done :true} ,
- {taskName:'code' ,done:false}];
+let tasks = [{ taskName: 'study', done: true },
+{ taskName: 'practice', done: true },
+{ taskName: 'code', done: false }];
 
 /**
  * Decides what to do depending on the data that was received
@@ -112,7 +112,7 @@ function add(x) {
     console.log('error you must add a task')
   }
   else {
-    tasks.push({taskName:x.slice(3).trim(),done:false})
+    tasks.push({ taskName: x.slice(3).trim(), done: false })
     list();
   }
 }
@@ -130,15 +130,15 @@ function edit(x) {
 
     for (let i = 0; i < tasks.length + 1; i++) {
       if (arr[1] == i) {
-        let newarray = {taskName:arr.splice(2).join(' ').trim(),done:false};
+        let newarray = { taskName: arr.splice(2).join(' ').trim(), done: false };
         tasks.splice(i - 1, 1, newarray)
       }
-      
+
     }
 
   }
-  if(isNaN(x.split(" ")[1])){
-  tasks[tasks.length -1]= {taskName:(x.slice(5)),done:false};
+  if (isNaN(x.split(" ")[1])) {
+    tasks[tasks.length - 1] = { taskName: (x.slice(5)), done: false };
   }
 
 }
@@ -158,13 +158,13 @@ function remove(x) {
       console.log('task not found')
     }
     else {
-    for (let i = 0; i < tasks.length; i++) {
-      if ( (i+1) == arr[1] + '\n') {
-        tasks.splice(i, 1)
-        console.log('you removed the task '+ (i+1));
+      for (let i = 0; i < tasks.length; i++) {
+        if ((i + 1) == arr[1] + '\n') {
+          tasks.splice(i, 1)
+          console.log('you removed the task ' + (i + 1));
+        }
       }
     }
-  }
   }
 }
 
@@ -181,20 +181,20 @@ function remove(x) {
  */
 function list() {
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].done){
+    if (tasks[i].done) {
       console.log('[✓]' + " : " + tasks[i].taskName);
     }
     else
-    console.log('[ ]' + " : " + tasks[i].taskName);
-    
+      console.log('[ ]' + " : " + tasks[i].taskName);
+
   }
 }
 
- /**
- * check function
- *
- * @returns {void}
- */
+/**
+* check tasks
+*
+* @returns {void}
+*/
 function check(x) {
   if (x.slice(5).trim() == "") {
     console.log("error");
@@ -202,17 +202,17 @@ function check(x) {
   else {
     let arr = x.split(" ");
     for (let i = 0; i < tasks.length + 1; i++) {
-      if (arr[1] == i+1) {
-        {tasks[i].done = true};
+      if (arr[1] == i + 1) {
+        { tasks[i].done = true };
         list();
       }
-      
+
     }
   }
 }
 /**
  /**
- * uncheck function
+ * uncheck tasks
  *
  * @returns {void}
  */
@@ -223,11 +223,11 @@ function uncheck(x) {
   else {
     let arr = x.split(" ");
     for (let i = 0; i < tasks.length + 1; i++) {
-      if (arr[1] == i+1) {
-        {tasks[i].done = false};
+      if (arr[1] == i + 1) {
+        { tasks[i].done = false };
         list();
       }
-      
+
     }
   }
 }
@@ -252,7 +252,7 @@ function quit() {
  * @returns {void}
  */
 function help() {
-  console.log('hello : this command greeting you for example if you wirte hello rima the answer would be hello rima!\nquit or exit : to exit\nhelp : show all the command\nlist : list all the tasks\nadd : add tasks1 to add the tasks one to the list of tasks\nremove : to remove the last task for example\nremove 1 : to remove the first task\nremove 2 : to remove the second task\nedit : to edit tasks if you did not define the tasks number last task will delete')
+  console.log('hello : this command greeting you for example if you wirte hello rima the answer would be hello rima!\nquit or exit : to exit\nhelp : show all the command\nlist : list all the tasks\nadd : add tasks1 to add the tasks one to the list of tasks\nremove : to remove the last task for example\n(remove 1 : to remove the first task\n remove n : to remove the n task)\nedit : to edit tasks if you did not define the tasks number last task will delete\ncheck : to change the task to done\nuncheck : does the opposite of check ')
 }
 // The following line starts the application
 startApp("Rima Assaad")
