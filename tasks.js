@@ -118,19 +118,25 @@ function hello(x){
    }
    else {
     let arr = x.split(" ");
-   
-     if(arr[1] == '1\n')
-    {
-      let task = tasks.splice(0,1)
-console.log('you removed the first task')
+    if(arr[1] > tasks.length){
+      console.log('task not found')
     }
-    else if(arr[1] == '2\n') {
-      let task = tasks.splice(1,1)
-console.log('you removed the second task')
-    }
-    else
-    console.log("error")
-    }}
+    for(let i=0;i<tasks.length;i++){
+      if(arr[1] == (i+1) +'\n')
+      {
+        tasks.splice(tasks[i],1)
+        numb = i;
+        console.log('you removed the task number ' + (numb+1))
+      }
+     
+  }
+      
+    } 
+  }
+    
+     
+    
+    
   
   
 
