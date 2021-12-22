@@ -61,6 +61,12 @@ function onDataReceived(text) {
     else if (((text.slice(0, 4) === 'edit'))) {
       edit(text)
     }
+    else if (((text.slice(0, 5) === 'check'))) {
+      check(text)
+    }
+    else if (((text.slice(0, 7) === 'uncheck'))) {
+      uncheck(text)
+    }
     else {
       unknownCommand(text);
     }
@@ -107,9 +113,7 @@ function add(x) {
   }
   else {
     tasks.push({taskName:x.slice(3).trim(),done:false})
-    for (let i = 0; i < tasks.length; i++) {
-      console.log(i + 1 + " : " + tasks[i].taskName);
-    }
+    list();
   }
 }
 /**edit tasks
@@ -185,8 +189,49 @@ function list() {
     
   }
 }
+
+ /**
+ * check function
+ *
+ * @returns {void}
+ */
+function check(x) {
+  if (x.slice(5).trim() == "") {
+    console.log("error");
+  }
+  else {
+    let arr = x.split(" ");
+    for (let i = 0; i < tasks.length + 1; i++) {
+      if (arr[1] == i+1) {
+        {tasks[i].done = true};
+        list();
+      }
+      
+    }
+  }
+}
 /**
- 
+ /**
+ * uncheck function
+ *
+ * @returns {void}
+ */
+function uncheck(x) {
+  if (x.slice(7).trim() == "") {
+    console.log("error");
+  }
+  else {
+    let arr = x.split(" ");
+    for (let i = 0; i < tasks.length + 1; i++) {
+      if (arr[1] == i+1) {
+        {tasks[i].done = false};
+        list();
+      }
+      
+    }
+  }
+}
+/**
  
 
 
