@@ -17,7 +17,9 @@ function startApp(name) {
   console.log("--------------------")
 }
 
-let tasks = ['study', 'practice', 'code'];
+let tasks = [{taskName : 'study', done : true},
+ {taskName: 'practice', done :true} ,
+ {taskName:'code' ,done:false}];
 
 /**
  * Decides what to do depending on the data that was received
@@ -104,9 +106,9 @@ function add(x) {
     console.log('error you must add a task')
   }
   else {
-    tasks.push(x.slice(3).trim())
+    tasks.push({taskName:x.slice(3).trim(),done:false})
     for (let i = 0; i < tasks.length; i++) {
-      console.log(i + 1 + " : " + tasks[i]);
+      console.log(i + 1 + " : " + tasks[i].taskName);
     }
   }
 }
@@ -124,7 +126,7 @@ function edit(x) {
 
     for (let i = 0; i < tasks.length + 1; i++) {
       if (arr[1] == i) {
-        let newarray = arr.splice(2).join(' ').trim();
+        let newarray = {taskName:arr.splice(2).join(' ').trim(),done:false};
         tasks.splice(i - 1, 1, newarray)
       }
       
@@ -132,7 +134,7 @@ function edit(x) {
 
   }
   if(isNaN(x.split(" ")[1])){
-  tasks[tasks.length -1]= (x.slice(5));
+  tasks[tasks.length -1]= {taskName:(x.slice(5)),done:false};
   }
 
 }
@@ -151,14 +153,14 @@ function remove(x) {
     if (arr[1] > tasks.length) {
       console.log('task not found')
     }
+    else {
     for (let i = 0; i < tasks.length; i++) {
-      if (arr[1] == (i + 1) + '\n') {
-        tasks.splice(tasks[i], 1)
-        numb = i;
-        console.log('you removed the task number ' + (numb + 1))
+      if ( (i+1) == arr[1] + '\n') {
+        tasks.splice(i, 1)
+        console.log('you removed the task '+ (i+1));
       }
-
     }
+  }
   }
 }
 
@@ -175,7 +177,12 @@ function remove(x) {
  */
 function list() {
   for (let i = 0; i < tasks.length; i++) {
-    console.log(i + 1 + " : " + tasks[i]);
+    if (tasks[i].done){
+      console.log('[✓]' + " : " + tasks[i].taskName);
+    }
+    else
+    console.log('[ ]' + " : " + tasks[i].taskName);
+    
   }
 }
 /**
