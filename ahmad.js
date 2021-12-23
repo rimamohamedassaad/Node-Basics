@@ -4,19 +4,11 @@
       "done": true
    },
    {
-      "taskName": "code",
+      "taskName": "practice",
       "done": true
    },
    {
-      "taskName": "eat",
-      "done": false
-   },
-   {
-      "taskName": "rima",
-      "done": false
-   },
-   {
-      "taskName": "rima",
+      "taskName": "code",
       "done": false
    },
    {

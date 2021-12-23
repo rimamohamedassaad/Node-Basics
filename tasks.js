@@ -1,4 +1,5 @@
 var fs = require('fs')
+var process = require('process')
 let tasks = [{ taskName: 'study', done: true },
 { taskName: 'practice', done: true },
 { taskName: 'code', done: false }];
@@ -18,15 +19,25 @@ function startApp(name) {
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+ if(process.argv.length == 2 )
 
-  try{
-  tasks = JSON.parse(fs.readFileSync("database.json").toString());
+  {
+path ="database.json"
+  } else {
+    path = process.argv[2]
   }
-  catch(error){
-    console.log('error')
-  }
+ read(path)
 }
 
+function read(path){
+  try{
+    
+    tasks = JSON.parse(fs.readFileSync(path).toString());
+    }
+    catch(error){
+      console.log('error')
+    }
+}
 
 
 
@@ -253,14 +264,24 @@ function uncheck(x) {
 */
 function quit() {
   console.log('Quitting now, goodbye!')
-  try {
-fs.writeFileSync("database.json",JSON.stringify(tasks,null,3))
+  if(process.argv.length == 2 )
 
-
-  } catch(error){
-console.log('error')
+  {
+bath ="database.json"
+  } else {
+    bath = process.argv[2]
   }
-  process.exit();
+ save(path)
+}
+
+function save(path){
+  try {
+    fs.writeFileSync(path,JSON.stringify(tasks,null,3))
+    
+      } catch(error){
+    console.log('error')
+      }
+      process.exit();
 }
 /**
  * help 
