@@ -1,4 +1,7 @@
-
+var fs = require('fs')
+let tasks = [{ taskName: 'study', done: true },
+{ taskName: 'practice', done: true },
+{ taskName: 'code', done: false }];
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -15,11 +18,17 @@ function startApp(name) {
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+
+  try{
+  tasks = JSON.parse(fs.readFileSync("database.json").toString());
+  }
+  catch(error){
+    console.log('error')
+  }
 }
 
-let tasks = [{ taskName: 'study', done: true },
-{ taskName: 'practice', done: true },
-{ taskName: 'code', done: false }];
+
+
 
 /**
  * Decides what to do depending on the data that was received
@@ -244,6 +253,13 @@ function uncheck(x) {
 */
 function quit() {
   console.log('Quitting now, goodbye!')
+  try {
+fs.writeFileSync("database.json",JSON.stringify(tasks,null,3))
+
+
+  } catch(error){
+console.log('error')
+  }
   process.exit();
 }
 /**
